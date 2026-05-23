@@ -1,0 +1,232 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap');
+
+:root {
+  --form-purple: #6B4FBB;
+  --form-purple-light: #8B6FDB;
+  --form-purple-bg: #F0EBFF;
+  --form-teal: #1E8A8A;
+  --form-bg: #F8F9FA;
+  --border: #E0E0E0;
+  --text-dark: #202124;
+  --text-mid: #5F6368;
+  --text-light: #80868B;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--form-bg);
+  color: var(--text-dark);
+  min-height: 100vh;
+}
+
+.form-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.08);
+  overflow: hidden;
+}
+
+.form-header-bar {
+  height: 10px;
+  background: linear-gradient(90deg, var(--form-purple), var(--form-purple-light));
+  border-radius: 8px 8px 0 0;
+}
+
+.field-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+  display: block;
+}
+
+.field-label .required {
+  color: #D93025;
+  margin-left: 2px;
+}
+
+.form-input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid var(--border);
+  padding: 8px 0;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  color: var(--text-dark);
+  background: transparent;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.form-input:focus {
+  border-bottom: 2px solid var(--form-purple);
+}
+
+.form-select {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid var(--border);
+  padding: 8px 0;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  color: var(--text-dark);
+  background: transparent;
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  transition: border-color 0.2s;
+}
+
+.form-select:focus {
+  border-bottom: 2px solid var(--form-purple);
+}
+
+.qty-grid {
+  display: grid;
+  gap: 10px;
+}
+
+.item-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.item-row:hover {
+  border-color: var(--form-purple-light);
+  background: var(--form-purple-bg);
+}
+
+.item-row.selected {
+  border-color: var(--form-purple);
+  background: var(--form-purple-bg);
+}
+
+.item-name {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-dark);
+  flex: 1;
+}
+
+.qty-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.qty-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1.5px solid var(--form-purple);
+  background: white;
+  color: var(--form-purple);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+  font-weight: 300;
+}
+
+.qty-btn:hover {
+  background: var(--form-purple);
+  color: white;
+}
+
+.qty-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.qty-value {
+  min-width: 22px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.summary-box {
+  background: var(--form-purple-bg);
+  border: 1px solid #D0C3F5;
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin-top: 8px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  margin-bottom: 4px;
+  color: var(--text-mid);
+}
+
+.summary-row.total {
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--form-purple);
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid #D0C3F5;
+}
+
+.submit-btn {
+  background: var(--form-purple);
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 4px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.submit-btn:hover {
+  background: var(--form-purple-light);
+}
+
+.submit-btn:active {
+  transform: scale(0.98);
+}
+
+.diff-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+
+.diff-positive { background: #E6F4EA; color: #137333; }
+.diff-negative { background: #FCE8E6; color: #D93025; }
+.diff-zero { background: #F1F3F4; color: #5F6368; }
+
+.success-icon {
+  width: 60px;
+  height: 60px;
+  background: var(--form-purple-bg);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
